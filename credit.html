@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用管理 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部信息栏 -->
+        <header class="mobile-header">
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop" alt="用户头像" class="avatar">
+                <div class="user-welcome">
+                    <span class="welcome-back">欢迎回来！</span>
+                    <span class="user-name">Lasso Kayne</span>
+                </div>
+            </div>
+            <div class="notification-bell">
+                <i class="material-icons">notifications_none</i>
+            </div>
+        </header>
+
+        <!-- 信用卡概览 -->
+        <section class="cards-overview">
+            <div class="card-carousel">
+                <div class="credit-card primary">
+                    <div class="card-header">
+                        <span class="card-type">Visa Platinum</span>
+                        <i class="material-icons">wifi</i>
+                    </div>
+                    <div class="card-number">
+                        4551 5667 8886 7775
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-holder">
+                            <span class="label">持卡人</span>
+                            <span class="value">Lasso Kayne</span>
+                        </div>
+                        <div class="card-balance">
+                            <span class="label">可用额度</span>
+                            <span class="value">¥121,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="credit-card secondary">
+                    <div class="card-header">
+                        <span class="card-type">Mastercard Gold</span>
+                        <i class="material-icons">wifi</i>
+                    </div>
+                    <div class="card-number">
+                        6885 3229 4886 7775
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-holder">
+                            <span class="label">持卡人</span>
+                            <span class="value">Lasso Kayne</span>
+                        </div>
+                        <div class="card-balance">
+                            <span class="label">可用额度</span>
+                            <span class="value">¥2,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快捷操作区 -->
+        <section class="quick-actions">
+            <h2>账单管理</h2>
+            <div class="action-grid">
+                <div class="action-item">
+                    <div class="action-icon water">
+                        <i class="material-icons">water_drop</i>
+                    </div>
+                    <span>水费</span>
+                </div>
+                <div class="action-item">
+                    <div class="action-icon power">
+                        <i class="material-icons">bolt</i>
+                    </div>
+                    <span>电费</span>
+                </div>
+                <div class="action-item">
+                    <div class="action-icon wifi">
+                        <i class="material-icons">wifi</i>
+                    </div>
+                    <span>网费</span>
+                </div>
+                <div class="action-item">
+                    <div class="action-icon grocery">
+                        <i class="material-icons">shopping_cart</i>
+                    </div>
+                    <span>购物</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 交易记录 -->
+        <section class="transactions">
+            <div class="section-header">
+                <h2>近期交易</h2>
+                <button class="more-btn">
+                    <i class="material-icons">more_horiz</i>
+                </button>
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-icon store">
+                        <i class="material-icons">storefront</i>
+                    </div>
+                    <div class="transaction-details">
+                        <div class="transaction-info">
+                            <h3>Saber便利店</h3>
+                            <span class="date">2024年1月23日</span>
+                        </div>
+                        <span class="amount expense">-¥22</span>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon wifi">
+                        <i class="material-icons">wifi</i>
+                    </div>
+                    <div class="transaction-details">
+                        <div class="transaction-info">
+                            <h3>网络账单</h3>
+                            <span class="date">2024年1月14日</span>
+                        </div>
+                        <span class="amount expense">-¥120</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">headphones</i>
+            </a>
+        </nav>
+    </div>
+</body>
+</html> 

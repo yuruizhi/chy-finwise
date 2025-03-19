@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收支管理 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- 添加Chart.js支持 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部导航 -->
+        <header class="mobile-header">
+            <button class="back-btn">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <h1>收支管理</h1>
+            <button class="more-btn">
+                <i class="material-icons">more_vert</i>
+            </button>
+        </header>
+
+        <!-- 收支概览 -->
+        <section class="balance-overview">
+            <div class="balance-card primary">
+                <div class="balance-header">
+                    <h2>本月收支</h2>
+                    <span class="trend positive">
+                        <i class="material-icons">trending_up</i>
+                        结余增长 15%
+                    </span>
+                </div>
+                <div class="balance-info">
+                    <div class="income-info">
+                        <span class="label">收入</span>
+                        <span class="value positive">¥21,000.00</span>
+                    </div>
+                    <div class="expense-info">
+                        <span class="label">支出</span>
+                        <span class="value negative">¥11,000.00</span>
+                    </div>
+                    <div class="balance-info">
+                        <span class="label">结余</span>
+                        <span class="value">¥10,000.00</span>
+                    </div>
+                </div>
+                <div class="balance-chart">
+                    <canvas id="monthlyTrendChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快捷操作 -->
+        <section class="quick-actions">
+            <div class="action-grid">
+                <a href="#" class="action-item" onclick="showTransactionModal('income')">
+                    <div class="action-icon income">
+                        <i class="material-icons">add_circle</i>
+                    </div>
+                    <span>记录收入</span>
+                </a>
+                <a href="#" class="action-item" onclick="showTransactionModal('expense')">
+                    <div class="action-icon expense">
+                        <i class="material-icons">remove_circle</i>
+                    </div>
+                    <span>记录支出</span>
+                </a>
+                <a href="#" class="action-item">
+                    <div class="action-icon transfer">
+                        <i class="material-icons">sync_alt</i>
+                    </div>
+                    <span>转账</span>
+                </a>
+                <a href="#" class="action-item">
+                    <div class="action-icon stats">
+                        <i class="material-icons">insights</i>
+                    </div>
+                    <span>统计</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 支出分析 -->
+        <section class="expense-analysis">
+            <div class="section-header">
+                <h2>支出分析</h2>
+                <div class="period-selector">
+                    <button class="period-btn active">月</button>
+                    <button class="period-btn">季</button>
+                    <button class="period-btn">年</button>
+                </div>
+            </div>
+            <div class="category-chart">
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <div class="category-list">
+                <div class="category-item">
+                    <div class="category-color" style="background: #4F46E5"></div>
+                    <div class="category-info">
+                        <span class="category-name">餐饮</span>
+                        <span class="category-amount">¥3,000.00</span>
+                    </div>
+                    <span class="category-percentage">27%</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-color" style="background: #10B981"></div>
+                    <div class="category-info">
+                        <span class="category-name">交通</span>
+                        <span class="category-amount">¥1,500.00</span>
+                    </div>
+                    <span class="category-percentage">14%</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-color" style="background: #F59E0B"></div>
+                    <div class="category-info">
+                        <span class="category-name">购物</span>
+                        <span class="category-amount">¥2,500.00</span>
+                    </div>
+                    <span class="category-percentage">23%</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-color" style="background: #EC4899"></div>
+                    <div class="category-info">
+                        <span class="category-name">娱乐</span>
+                        <span class="category-amount">¥1,000.00</span>
+                    </div>
+                    <span class="category-percentage">9%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最近交易 -->
+        <section class="recent-transactions">
+            <div class="section-header">
+                <h2>最近交易</h2>
+                <a href="#" class="view-all">查看全部</a>
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-icon expense">
+                        <i class="material-icons">shopping_cart</i>
+                    </div>
+                    <div class="transaction-info">
+                        <div class="transaction-main">
+                            <span class="merchant">超市购物</span>
+                            <span class="amount expense">-¥258.00</span>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="category">购物</span>
+                            <span class="date">今天</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon income">
+                        <i class="material-icons">payments</i>
+                    </div>
+                    <div class="transaction-info">
+                        <div class="transaction-main">
+                            <span class="merchant">工资收入</span>
+                            <span class="amount income">+¥12,000.00</span>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="category">工资</span>
+                            <span class="date">昨天</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="income-expenses.html" class="nav-item active">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action" onclick="showTransactionModal()">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">person</i>
+            </a>
+        </nav>
+
+        <!-- 添加交易模态框 -->
+        <div id="addTransactionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>记录交易</h2>
+                    <button class="close-modal">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="transaction-form">
+                    <div class="type-selector">
+                        <button class="type-btn active" data-type="expense">
+                            <i class="material-icons">remove_circle</i>
+                            <span>支出</span>
+                        </button>
+                        <button class="type-btn" data-type="income">
+                            <i class="material-icons">add_circle</i>
+                            <span>收入</span>
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label>金额</label>
+                        <div class="amount-input">
+                            <span class="currency">¥</span>
+                            <input type="number" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>类别</label>
+                        <select>
+                            <option value="">选择类别</option>
+                            <optgroup label="支出">
+                                <option value="food">餐饮</option>
+                                <option value="transport">交通</option>
+                                <option value="shopping">购物</option>
+                                <option value="entertainment">娱乐</option>
+                            </optgroup>
+                            <optgroup label="收入">
+                                <option value="salary">工资</option>
+                                <option value="bonus">奖金</option>
+                                <option value="investment">投资收益</option>
+                                <option value="other">其他</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>日期</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>备注</label>
+                        <input type="text" placeholder="添加备注...">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-secondary">取消</button>
+                        <button class="btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/income-expenses.js"></script>
+</body>
+</html> 

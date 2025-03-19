@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI顾问 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部信息栏 -->
+        <header class="mobile-header">
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop" alt="用户头像" class="avatar">
+                <div class="user-welcome">
+                    <span class="welcome-back">您好</span>
+                    <span class="user-name">月球送餐选手</span>
+                </div>
+            </div>
+            <div class="notification-bell">
+                <i class="material-icons">notifications_none</i>
+            </div>
+        </header>
+
+        <!-- AI助手对话框 -->
+        <section class="ai-chat">
+            <div class="chat-messages">
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="material-icons">psychology</i>
+                    </div>
+                    <div class="message-content">
+                        <p>您好！我是您的AI财务顾问。根据您的财务数据分析，我为您准备了一些个性化建议。</p>
+                    </div>
+                </div>
+                <div class="message user">
+                    <div class="message-content">
+                        <p>我想了解我的投资组合是否需要调整。</p>
+                    </div>
+                </div>
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="material-icons">psychology</i>
+                    </div>
+                    <div class="message-content">
+                        <div class="portfolio-analysis">
+                            <h3>投资组合分析</h3>
+                            <div class="portfolio-chart">
+                                <canvas id="portfolioChart"></canvas>
+                            </div>
+                            <div class="analysis-text">
+                                <p>您当前的投资组合风险适中，但可以考虑：</p>
+                                <ul>
+                                    <li>增加10%的科技股配置</li>
+                                    <li>减少5%的现金持有</li>
+                                    <li>考虑加入ESG相关投资</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快捷问题 -->
+            <div class="quick-questions">
+                <h3>您可能想问</h3>
+                <div class="question-chips">
+                    <button class="chip">如何优化我的支出？</button>
+                    <button class="chip">如何制定理财目标？</button>
+                    <button class="chip">如何规划退休金？</button>
+                    <button class="chip">如何降低信用卡费用？</button>
+                </div>
+            </div>
+
+            <!-- 输入框 -->
+            <div class="chat-input">
+                <input type="text" placeholder="输入您的问题...">
+                <button class="send-btn">
+                    <i class="material-icons">send</i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 财务健康评分 -->
+        <section class="financial-health">
+            <div class="health-card">
+                <div class="health-header">
+                    <h2>财务健康评分</h2>
+                    <span class="score">85</span>
+                </div>
+                <div class="health-details">
+                    <div class="health-item">
+                        <div class="item-header">
+                            <span class="label">支出控制</span>
+                            <span class="value good">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="item-header">
+                            <span class="label">储蓄情况</span>
+                            <span class="value warning">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="item-header">
+                            <span class="label">投资收益</span>
+                            <span class="value good">88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能目标 -->
+        <section class="smart-goals">
+            <div class="section-header">
+                <h2>智能目标</h2>
+                <button class="add-goal-btn">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-icon house">
+                        <i class="material-icons">house</i>
+                    </div>
+                    <div class="goal-info">
+                        <h3>购房储蓄</h3>
+                        <div class="goal-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                            <span class="progress-text">65% 完成</span>
+                        </div>
+                        <p class="goal-amount">
+                            <span class="current">¥325,000</span>
+                            <span class="target">/ ¥500,000</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-icon car">
+                        <i class="material-icons">directions_car</i>
+                    </div>
+                    <div class="goal-info">
+                        <h3>购车基金</h3>
+                        <div class="goal-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 40%"></div>
+                            </div>
+                            <span class="progress-text">40% 完成</span>
+                        </div>
+                        <p class="goal-amount">
+                            <span class="current">¥80,000</span>
+                            <span class="target">/ ¥200,000</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">headphones</i>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 初始化投资组合图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['股票', '债券', '基金', '现金'],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [
+                            '#4F46E5',
+                            '#10B981',
+                            '#F59E0B',
+                            '#EC4899'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // 添加快捷问题点击事件
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const input = document.querySelector('.chat-input input');
+                input.value = this.textContent;
+                input.focus();
+            });
+        });
+
+        // 发送消息事件
+        document.querySelector('.send-btn').addEventListener('click', function() {
+            const input = document.querySelector('.chat-input input');
+            if (input.value.trim()) {
+                // 这里添加发送消息的逻辑
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html> 

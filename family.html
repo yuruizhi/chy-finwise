@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家庭规划 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部信息栏 -->
+        <header class="mobile-header">
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop" alt="用户头像" class="avatar">
+                <div class="user-welcome">
+                    <span class="welcome-back">家庭账户</span>
+                    <span class="user-name">张家</span>
+                </div>
+            </div>
+            <div class="notification-bell">
+                <i class="material-icons">notifications_none</i>
+            </div>
+        </header>
+
+        <!-- 家庭预算概览 -->
+        <section class="budget-overview">
+            <div class="budget-card primary">
+                <div class="budget-header">
+                    <h2>本月家庭预算</h2>
+                    <span class="budget-date">2024年1月</span>
+                </div>
+                <div class="budget-amount">
+                    <span class="amount">¥15,000</span>
+                    <span class="remaining">剩余 ¥8,500</span>
+                </div>
+                <div class="budget-progress">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 43%"></div>
+                    </div>
+                    <span class="progress-text">已使用 43%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 家庭成员支出 -->
+        <section class="family-expenses">
+            <div class="section-header">
+                <h2>家庭成员支出</h2>
+                <div class="date-selector">
+                    <i class="material-icons">calendar_today</i>
+                    <span>本月</span>
+                </div>
+            </div>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-info">
+                        <div class="member-avatar parent">
+                            <i class="material-icons">face</i>
+                        </div>
+                        <div class="member-details">
+                            <h3>爸爸</h3>
+                            <span class="expense">¥3,200</span>
+                        </div>
+                    </div>
+                    <div class="expense-chart">
+                        <canvas id="fatherChart"></canvas>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-info">
+                        <div class="member-avatar parent">
+                            <i class="material-icons">face_3</i>
+                        </div>
+                        <div class="member-details">
+                            <h3>妈妈</h3>
+                            <span class="expense">¥2,800</span>
+                        </div>
+                    </div>
+                    <div class="expense-chart">
+                        <canvas id="motherChart"></canvas>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <div class="member-info">
+                        <div class="member-avatar child">
+                            <i class="material-icons">child_care</i>
+                        </div>
+                        <div class="member-details">
+                            <h3>小明</h3>
+                            <span class="expense">¥1,500</span>
+                        </div>
+                    </div>
+                    <div class="expense-chart">
+                        <canvas id="childChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育基金规划 -->
+        <section class="education-planning">
+            <div class="section-header">
+                <h2>教育基金规划</h2>
+                <button class="edit-btn">
+                    <i class="material-icons">edit</i>
+                </button>
+            </div>
+            <div class="education-card">
+                <div class="fund-info">
+                    <div class="fund-target">
+                        <span class="label">目标金额</span>
+                        <span class="value">¥500,000</span>
+                    </div>
+                    <div class="fund-current">
+                        <span class="label">当前积累</span>
+                        <span class="value">¥150,000</span>
+                    </div>
+                </div>
+                <div class="fund-progress">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                    <span class="progress-text">已完成 30%</span>
+                </div>
+                <div class="fund-suggestion">
+                    <i class="material-icons">lightbulb</i>
+                    <p>建议每月存入¥3,000，预计18年后达成目标</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能建议 -->
+        <section class="ai-suggestions">
+            <div class="suggestion-card">
+                <div class="suggestion-icon">
+                    <i class="material-icons">psychology</i>
+                </div>
+                <div class="suggestion-content">
+                    <h3>AI智能建议</h3>
+                    <ul class="suggestion-list">
+                        <li>建议增加子女教育保险覆盖</li>
+                        <li>可以考虑调整家庭娱乐支出，每月节省约¥500</li>
+                        <li>建议为紧急支出预留3-6个月的家庭收入</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">headphones</i>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 初始化家庭成员支出图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartConfig = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [30, 20, 50],
+                        backgroundColor: [
+                            '#4F46E5',
+                            '#34D399',
+                            '#F59E0B'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            };
+
+            new Chart(document.getElementById('fatherChart'), {
+                ...chartConfig,
+                data: {
+                    datasets: [{
+                        data: [40, 35, 25],
+                        backgroundColor: ['#4F46E5', '#34D399', '#F59E0B']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('motherChart'), {
+                ...chartConfig,
+                data: {
+                    datasets: [{
+                        data: [45, 30, 25],
+                        backgroundColor: ['#EC4899', '#8B5CF6', '#F59E0B']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('childChart'), {
+                ...chartConfig,
+                data: {
+                    datasets: [{
+                        data: [60, 25, 15],
+                        backgroundColor: ['#10B981', '#3B82F6', '#F59E0B']
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

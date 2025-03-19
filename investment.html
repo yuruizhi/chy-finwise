@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投资建议 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边导航 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Logo">
+                <h1>财智助手</h1>
+            </div>
+            <ul class="nav-links">
+                <li><i class="material-icons">dashboard</i>总览</li>
+                <li><i class="material-icons">account_balance_wallet</i>收支管理</li>
+                <li class="active"><i class="material-icons">trending_up</i>投资建议</li>
+                <li><i class="material-icons">credit_card</i>信用管理</li>
+                <li><i class="material-icons">family_restroom</i>家庭规划</li>
+                <li><i class="material-icons">psychology</i>AI顾问</li>
+            </ul>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部信息栏 -->
+            <header class="top-bar">
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop" alt="用户头像" class="avatar">
+                    <span>欢迎回来，张先生</span>
+                </div>
+                <div class="notification">
+                    <i class="material-icons">notifications</i>
+                </div>
+            </header>
+
+            <!-- 投资概览 -->
+            <section class="investment-overview">
+                <div class="overview-cards">
+                    <div class="card">
+                        <h3>总投资资产</h3>
+                        <p class="amount">¥280,000</p>
+                        <span class="trend positive">
+                            <i class="material-icons">arrow_upward</i>
+                            +12.5%
+                        </span>
+                    </div>
+                    <div class="card">
+                        <h3>本月收益</h3>
+                        <p class="amount">¥3,500</p>
+                        <span class="trend positive">
+                            <i class="material-icons">arrow_upward</i>
+                            +2.8%
+                        </span>
+                    </div>
+                    <div class="card">
+                        <h3>风险评级</h3>
+                        <p class="risk-level">中等</p>
+                        <div class="risk-bar">
+                            <div class="risk-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI投资建议 -->
+            <section class="ai-investment-advice card">
+                <div class="advice-header">
+                    <h2>AI智能投资建议</h2>
+                    <button class="refresh-btn">
+                        <i class="material-icons">refresh</i>
+                    </button>
+                </div>
+                <div class="advice-content">
+                    <div class="advice-card primary">
+                        <i class="material-icons">tips_and_updates</i>
+                        <div class="advice-text">
+                            <h4>投资组合建议</h4>
+                            <p>根据您的风险承受能力和当前市场情况，建议：</p>
+                            <ul class="advice-list">
+                                <li>股票基金: 40% (偏好低波动蓝筹股)</li>
+                                <li>债券基金: 30% (注重稳定收益)</li>
+                                <li>货币基金: 20% (保持流动性)</li>
+                                <li>其他投资: 10% (适度配置创新产品)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 投资机会 -->
+            <section class="investment-opportunities">
+                <h2>推荐投资机会</h2>
+                <div class="opportunities-grid">
+                    <div class="card opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="material-icons">account_balance</i>
+                            <span class="risk-tag medium">中等风险</span>
+                        </div>
+                        <h3>沪深300指数基金</h3>
+                        <p class="description">追踪中国大陆股市核心资产，长期稳健增长</p>
+                        <div class="opportunity-stats">
+                            <div class="stat">
+                                <span class="label">年化收益</span>
+                                <span class="value positive">+12.5%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">最低投资</span>
+                                <span class="value">¥1,000</span>
+                            </div>
+                        </div>
+                        <button class="invest-btn">了解详情</button>
+                    </div>
+
+                    <div class="card opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="material-icons">savings</i>
+                            <span class="risk-tag low">低风险</span>
+                        </div>
+                        <h3>国债基金</h3>
+                        <p class="description">政府信用背书，稳定收益，适合保守投资</p>
+                        <div class="opportunity-stats">
+                            <div class="stat">
+                                <span class="label">年化收益</span>
+                                <span class="value positive">+4.2%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">最低投资</span>
+                                <span class="value">¥5,000</span>
+                            </div>
+                        </div>
+                        <button class="invest-btn">了解详情</button>
+                    </div>
+
+                    <div class="card opportunity-card">
+                        <div class="opportunity-header">
+                            <i class="material-icons">trending_up</i>
+                            <span class="risk-tag high">高风险</span>
+                        </div>
+                        <h3>科技创新基金</h3>
+                        <p class="description">投资未来科技领域，高风险高收益</p>
+                        <div class="opportunity-stats">
+                            <div class="stat">
+                                <span class="label">年化收益</span>
+                                <span class="value positive">+25.8%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">最低投资</span>
+                                <span class="value">¥10,000</span>
+                            </div>
+                        </div>
+                        <button class="invest-btn">了解详情</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 市场分析 -->
+            <section class="market-analysis card">
+                <h2>市场趋势分析</h2>
+                <div class="chart-container">
+                    <canvas id="marketTrendChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // 初始化市场趋势图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('marketTrendChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '股票市场',
+                        data: [100, 120, 115, 134, 168, 160],
+                        borderColor: '#4F46E5',
+                        tension: 0.4
+                    }, {
+                        label: '债券市场',
+                        data: [100, 102, 104, 103, 106, 108],
+                        borderColor: '#34D399',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        title: {
+                            display: true,
+                            text: '主要市场指数走势（基准100）'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,550 @@
+/* 收支管理页面样式 */
+.income-expenses-page {
+    padding-bottom: 60px;
+}
+
+/* 头部样式 */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn, .more-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* 余额概览样式 */
+.balance-overview {
+    padding: 20px 16px;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: #fff;
+    border-radius: 0 0 24px 24px;
+}
+
+.balance-title {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.balance-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 快捷操作样式 */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    margin-top: -24px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn.income {
+    color: #059669;
+}
+
+.action-btn.expense {
+    color: #DC2626;
+}
+
+/* 图表区域样式 */
+.chart-section {
+    padding: 20px 16px;
+    background: #fff;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.period-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.period-btn {
+    padding: 6px 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 13px;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.period-btn.active {
+    background: #4F46E5;
+    color: #fff;
+    border-color: #4F46E5;
+}
+
+.chart-container {
+    height: 200px;
+    position: relative;
+}
+
+/* 分类占比样式 */
+.category-distribution {
+    padding: 20px 16px;
+    background: #fff;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.distribution-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.distribution-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.distribution-chart {
+    height: 200px;
+    position: relative;
+}
+
+.category-list {
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.category-name {
+    font-size: 15px;
+    color: #374151;
+}
+
+.category-amount {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.category-percentage {
+    font-size: 13px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+/* 交易记录样式 */
+.transaction-history {
+    padding: 20px 16px;
+    background: #fff;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.history-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.view-all {
+    font-size: 14px;
+    color: #4F46E5;
+    text-decoration: none;
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: #F9FAFB;
+    border-radius: 12px;
+}
+
+.transaction-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-title {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.transaction-category {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.transaction-amount {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.amount-income {
+    color: #059669;
+}
+
+.amount-expense {
+    color: #DC2626;
+}
+
+.transaction-date {
+    font-size: 13px;
+    color: #6B7280;
+    margin-top: 4px;
+}
+
+/* 交易模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 100;
+}
+
+.modal.show {
+    display: flex;
+    align-items: flex-end;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px 16px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.type-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.type-btn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.type-btn.active {
+    background: #4F46E5;
+    color: #fff;
+    border-color: #4F46E5;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.form-input {
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #111827;
+    width: 100%;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.form-select {
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #111827;
+    width: 100%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #4F46E5;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #4338CA;
+}
+
+.btn-secondary {
+    background: #F3F4F6;
+    color: #374151;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #E5E7EB;
+}
+
+/* 提示信息样式 */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 360px) {
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    .stat-value {
+        font-size: 14px;
+    }
+
+    .action-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .chart-section,
+    .category-distribution,
+    .transaction-history {
+        margin: 12px;
+        padding: 16px 12px;
+    }
+
+    .period-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .category-icon,
+    .transaction-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .category-name,
+    .transaction-title {
+        font-size: 14px;
+    }
+
+    .category-amount,
+    .transaction-amount {
+        font-size: 14px;
+    }
+} 

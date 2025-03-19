@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资产详情 - 财智助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部导航 -->
+        <header class="mobile-header">
+            <button class="back-btn">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <h1>资产详情</h1>
+            <button class="more-btn">
+                <i class="material-icons">more_vert</i>
+            </button>
+        </header>
+
+        <!-- 资产总览卡片 -->
+        <section class="asset-overview">
+            <div class="asset-card primary">
+                <div class="asset-header">
+                    <h2>总资产</h2>
+                    <span class="trend positive">
+                        <i class="material-icons">trending_up</i>
+                        +2.5%
+                    </span>
+                </div>
+                <div class="asset-amount">¥328,550.00</div>
+                <div class="asset-chart">
+                    <canvas id="assetTrendChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资产分布 -->
+        <section class="asset-distribution">
+            <div class="section-header">
+                <h2>资产分布</h2>
+                <div class="period-selector">
+                    <button class="period-btn active">月</button>
+                    <button class="period-btn">季</button>
+                    <button class="period-btn">年</button>
+                </div>
+            </div>
+            <div class="distribution-chart">
+                <canvas id="distributionChart"></canvas>
+            </div>
+            <div class="distribution-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4F46E5"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">活期存款</span>
+                        <span class="legend-value">¥125,000.00</span>
+                    </div>
+                    <span class="legend-percentage">38%</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #10B981"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">定期存款</span>
+                        <span class="legend-value">¥80,000.00</span>
+                    </div>
+                    <span class="legend-percentage">24%</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #F59E0B"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">基金投资</span>
+                        <span class="legend-value">¥65,550.00</span>
+                    </div>
+                    <span class="legend-percentage">20%</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #EC4899"></div>
+                    <div class="legend-info">
+                        <span class="legend-label">股票投资</span>
+                        <span class="legend-value">¥58,000.00</span>
+                    </div>
+                    <span class="legend-percentage">18%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资产变动记录 -->
+        <section class="asset-history">
+            <div class="section-header">
+                <h2>资产变动</h2>
+                <button class="filter-btn">
+                    <i class="material-icons">filter_list</i>
+                    筛选
+                </button>
+            </div>
+            <div class="history-list">
+                <div class="history-item increase">
+                    <div class="history-icon">
+                        <i class="material-icons">add_circle</i>
+                    </div>
+                    <div class="history-info">
+                        <div class="history-main">
+                            <span class="history-title">工资收入</span>
+                            <span class="history-amount">+¥12,500.00</span>
+                        </div>
+                        <div class="history-details">
+                            <span class="history-category">活期存款</span>
+                            <span class="history-time">2024-03-19</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-item decrease">
+                    <div class="history-icon">
+                        <i class="material-icons">remove_circle</i>
+                    </div>
+                    <div class="history-info">
+                        <div class="history-main">
+                            <span class="history-title">基金赎回</span>
+                            <span class="history-amount">-¥5,000.00</span>
+                        </div>
+                        <div class="history-details">
+                            <span class="history-category">基金投资</span>
+                            <span class="history-time">2024-03-18</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-item transfer">
+                    <div class="history-icon">
+                        <i class="material-icons">swap_horiz</i>
+                    </div>
+                    <div class="history-info">
+                        <div class="history-main">
+                            <span class="history-title">转入定期</span>
+                            <span class="history-amount">¥20,000.00</span>
+                        </div>
+                        <div class="history-details">
+                            <span class="history-category">定期存款</span>
+                            <span class="history-time">2024-03-15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="income-expenses.html" class="nav-item">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">person</i>
+            </a>
+        </nav>
+
+        <!-- 添加交易模态框 -->
+        <div id="addTransactionModal" class="modal">
+            <div class="modal-content">
+                <!-- 复用之前的模态框内容 -->
+            </div>
+        </div>
+
+        <!-- 搜索模态框 -->
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <!-- 复用之前的模态框内容 -->
+            </div>
+        </div>
+
+        <!-- 筛选模态框 -->
+        <div id="filterModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>筛选资产变动</h2>
+                    <button class="close-modal">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="filter-form">
+                    <div class="form-group">
+                        <label>变动类型</label>
+                        <div class="chip-group">
+                            <button class="chip active" data-type="all">全部</button>
+                            <button class="chip" data-type="increase">收入</button>
+                            <button class="chip" data-type="decrease">支出</button>
+                            <button class="chip" data-type="transfer">转账</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>时间范围</label>
+                        <div class="date-range">
+                            <input type="date" id="startDate" class="date-input">
+                            <span class="date-separator">至</span>
+                            <input type="date" id="endDate" class="date-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>金额范围</label>
+                        <div class="amount-range">
+                            <input type="number" id="minAmount" placeholder="最小金额" class="amount-input">
+                            <span class="amount-separator">至</span>
+                            <input type="number" id="maxAmount" placeholder="最大金额" class="amount-input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>资产类别</label>
+                        <div class="chip-group">
+                            <button class="chip active" data-category="all">全部</button>
+                            <button class="chip" data-category="活期存款">活期存款</button>
+                            <button class="chip" data-category="定期存款">定期存款</button>
+                            <button class="chip" data-category="基金投资">基金投资</button>
+                            <button class="chip" data-category="股票投资">股票投资</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="resetFilter">重置</button>
+                    <button class="btn-primary" id="applyFilter">应用筛选</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 更多选项菜单 -->
+        <div id="moreOptionsMenu" class="more-options-menu">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <h3>更多选项</h3>
+                    <button class="close-menu">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="menu-items">
+                    <button class="menu-item" data-action="export">
+                        <i class="material-icons">download</i>
+                        <span>导出数据</span>
+                    </button>
+                    <button class="menu-item" data-action="share">
+                        <i class="material-icons">share</i>
+                        <span>分享</span>
+                    </button>
+                    <button class="menu-item" data-action="settings">
+                        <i class="material-icons">settings</i>
+                        <span>设置</span>
+                    </button>
+                    <button class="menu-item" data-action="help">
+                        <i class="material-icons">help</i>
+                        <span>帮助</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/assets.js"></script>
+</body>
+</html> 
