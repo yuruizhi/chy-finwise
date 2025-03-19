@@ -1,0 +1,516 @@
+/* 收支管理页面样式 */
+.income-expenses-page {
+    padding-bottom: 60px;
+}
+
+/* 头部样式 */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn, .more-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* 余额概览样式 */
+.balance-overview {
+    padding: 20px 16px;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: #fff;
+    border-radius: 0 0 24px 24px;
+}
+
+.balance-title {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.balance-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 快捷操作样式 */
+.quick-actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    margin-top: -24px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn.income {
+    color: #059669;
+}
+
+.action-btn.expense {
+    color: #DC2626;
+}
+
+/* 图表区域样式 */
+.chart-section {
+    padding: 20px 16px;
+    background: #fff;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.period-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.period-btn {
+    padding: 6px 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 13px;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.period-btn.active {
+    background: #4F46E5;
+    color: #fff;
+    border-color: #4F46E5;
+}
+
+.chart-container {
+    height: 200px;
+    position: relative;
+}
+
+/* 分类占比样式 */
+.category-distribution {
+    padding: 20px 16px;
+    background: #fff;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.distribution-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.distribution-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.distribution-chart {
+    height: 200px;
+    position: relative;
+}
+
+.category-list {
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.category-icon.food {
+    background: #4F46E5;
+}
+
+.category-icon.transport {
+    background: #10B981;
+}
+
+.category-icon.shopping {
+    background: #F59E0B;
+}
+
+.category-icon.entertainment {
+    background: #EC4899;
+}
+
+.category-icon.other {
+    background: #6B7280;
+}
+
+.category-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.category-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.amount-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.amount-percent {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+/* 交易历史样式 */
+.transaction-history {
+    padding: 20px 16px;
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.history-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 13px;
+    color: #6B7280;
+    cursor: pointer;
+}
+
+.date-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B7280;
+    margin: 16px 0 8px;
+}
+
+.transaction-list {
+    background: #fff;
+    border-radius: 16px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    color: #fff;
+}
+
+.transaction-icon.expense {
+    background: #DC2626;
+}
+
+.transaction-icon.income {
+    background: #059669;
+}
+
+.transaction-info {
+    flex: 1;
+}
+
+.transaction-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.merchant {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.amount {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.amount.expense {
+    color: #DC2626;
+}
+
+.amount.income {
+    color: #059669;
+}
+
+.transaction-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.time {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+/* 筛选模态框样式 */
+.filter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.filter-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter-content {
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    padding: 24px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.filter-modal.show .filter-content {
+    transform: translateY(0);
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.close-filter {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #374151;
+}
+
+.filter-section {
+    margin-bottom: 24px;
+}
+
+.filter-section-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-radio, .filter-checkbox {
+    padding: 8px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-radio.active, .filter-checkbox.active {
+    background: #4F46E5;
+    color: #fff;
+    border-color: #4F46E5;
+}
+
+.date-inputs {
+    display: flex;
+    gap: 12px;
+}
+
+.date-input-group {
+    flex: 1;
+}
+
+.date-label {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 8px;
+}
+
+.date-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.reset-btn, .apply-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reset-btn {
+    background: #F3F4F6;
+    color: #374151;
+    border: none;
+}
+
+.apply-btn {
+    background: #4F46E5;
+    color: #fff;
+    border: none;
+}
