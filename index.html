@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>财智助手 - 智能理财管理</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="mobile-app">
+    <div class="app-container mobile">
+        <!-- 顶部信息栏 -->
+        <header class="mobile-header">
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=96&h=96&fit=crop" alt="用户头像" class="avatar">
+                <div class="user-welcome">
+                    <span class="welcome-back">欢迎回来</span>
+                    <span class="user-name">于先生</span>
+                </div>
+            </div>
+            <div class="notification-bell">
+                <i class="material-icons">notifications_none</i>
+                <span class="notification-badge">3</span>
+            </div>
+        </header>
+
+        <!-- 资产概览 -->
+        <section class="balance-overview">
+            <div class="balance-card primary">
+                <div class="balance-header">
+                    <h2>总资产</h2>
+                    <button class="view-details">
+                        <i class="material-icons">visibility</i>
+                    </button>
+                </div>
+                <div class="balance-amount">
+                    <span class="amount">¥328,550.00</span>
+                    <span class="trend positive">
+                        <i class="material-icons">trending_up</i>
+                        +2.5%
+                    </span>
+                </div>
+                <div class="balance-chart">
+                    <canvas id="balanceChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快捷功能 -->
+        <section class="quick-actions">
+            <div class="action-grid">
+                <a href="income-expenses.html" class="action-item">
+                    <div class="action-icon income">
+                        <i class="material-icons">payments</i>
+                    </div>
+                    <span class="action-label">收支记录</span>
+                </a>
+                <a href="credit.html" class="action-item">
+                    <div class="action-icon credit">
+                        <i class="material-icons">credit_card</i>
+                    </div>
+                    <span class="action-label">信用卡</span>
+                </a>
+                <a href="family.html" class="action-item">
+                    <div class="action-icon family">
+                        <i class="material-icons">family_restroom</i>
+                    </div>
+                    <span class="action-label">家庭规划</span>
+                </a>
+                <a href="advisor.html" class="action-item">
+                    <div class="action-icon ai">
+                        <i class="material-icons">psychology</i>
+                    </div>
+                    <span class="action-label">AI顾问</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 最近交易 -->
+        <section class="recent-transactions">
+            <div class="section-header">
+                <h2>最近交易</h2>
+                <a href="income-expenses.html" class="view-all">查看全部</a>
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-icon expense">
+                        <i class="material-icons">shopping_cart</i>
+                    </div>
+                    <div class="transaction-info">
+                        <div class="transaction-main">
+                            <span class="merchant">超市购物</span>
+                            <span class="amount expense">-¥286.50</span>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="category">日常支出</span>
+                            <span class="time">今天 14:30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon income">
+                        <i class="material-icons">account_balance</i>
+                    </div>
+                    <div class="transaction-info">
+                        <div class="transaction-main">
+                            <span class="merchant">工资收入</span>
+                            <span class="amount income">+¥12,500.00</span>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="category">工资</span>
+                            <span class="time">昨天</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon expense">
+                        <i class="material-icons">restaurant</i>
+                    </div>
+                    <div class="transaction-info">
+                        <div class="transaction-main">
+                            <span class="merchant">午餐</span>
+                            <span class="amount expense">-¥45.00</span>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="category">餐饮</span>
+                            <span class="time">昨天</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 智能建议 -->
+        <section class="ai-insights">
+            <div class="section-header">
+                <h2>智能建议</h2>
+                <a href="advisor.html" class="view-all">更多建议</a>
+            </div>
+            <div class="insights-card">
+                <div class="insight-header">
+                    <i class="material-icons">tips_and_updates</i>
+                    <h3>本月支出分析</h3>
+                </div>
+                <div class="insight-content">
+                    <div class="spending-chart">
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                    <div class="insight-text">
+                        <p>您的餐饮支出比上月增加了15%，建议：</p>
+                        <ul>
+                            <li>考虑准备午餐带到公司</li>
+                            <li>控制外卖频率</li>
+                            <li>使用优惠券或会员折扣</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active">
+                <i class="material-icons">home</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">history</i>
+            </a>
+            <a href="#" class="nav-item main-action">
+                <i class="material-icons">add</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">search</i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="material-icons">person</i>
+            </a>
+        </nav>
+
+        <!-- 添加交易模态框 -->
+        <div id="addTransactionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>添加交易</h2>
+                    <button class="close-modal">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <form id="transactionForm" class="transaction-form">
+                    <div class="form-group">
+                        <div class="type-selector">
+                            <button type="button" class="type-btn active" data-type="expense">
+                                <i class="material-icons">remove_circle_outline</i>
+                                支出
+                            </button>
+                            <button type="button" class="type-btn" data-type="income">
+                                <i class="material-icons">add_circle_outline</i>
+                                收入
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">金额</label>
+                        <div class="amount-input">
+                            <span class="currency">¥</span>
+                            <input type="number" id="amount" name="amount" placeholder="0.00" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">类别</label>
+                        <select id="category" name="category" required>
+                            <option value="">选择类别</option>
+                            <optgroup label="支出类别">
+                                <option value="food">餐饮</option>
+                                <option value="transport">交通</option>
+                                <option value="shopping">购物</option>
+                                <option value="entertainment">娱乐</option>
+                                <option value="other">其他</option>
+                            </optgroup>
+                            <optgroup label="收入类别">
+                                <option value="salary">工资</option>
+                                <option value="bonus">奖金</option>
+                                <option value="investment">投资收益</option>
+                                <option value="other_income">其他收入</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">日期</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">描述</label>
+                        <input type="text" id="description" name="description" placeholder="添加描述...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary close-modal">取消</button>
+                        <button type="submit" class="btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 搜索模态框 -->
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>搜索交易</h2>
+                    <button class="close-modal">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <i class="material-icons">search</i>
+                        <input type="text" id="searchInput" placeholder="搜索交易、类别或金额...">
+                    </div>
+                    <div class="search-filters">
+                        <div class="filter-group">
+                            <label>交易类型</label>
+                            <div class="chip-group">
+                                <button class="chip active" data-type="all">全部</button>
+                                <button class="chip" data-type="expense">支出</button>
+                                <button class="chip" data-type="income">收入</button>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>时间范围</label>
+                            <div class="chip-group">
+                                <button class="chip active" data-period="all">全部</button>
+                                <button class="chip" data-period="week">本周</button>
+                                <button class="chip" data-period="month">本月</button>
+                                <button class="chip" data-period="year">今年</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-results">
+                        <div class="results-header">
+                            <span>搜索结果</span>
+                            <span class="results-count">0 条记录</span>
+                        </div>
+                        <div class="results-list">
+                            <!-- 搜索结果将动态插入这里 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 通知面板 -->
+        <div id="notificationPanel" class="notification-panel">
+            <div class="notification-header">
+                <h2>通知</h2>
+                <button class="close-panel">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="notification-content">
+                <div class="notification-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="unread">未读</button>
+                    <button class="filter-btn" data-filter="important">重要</button>
+                </div>
+                <div class="notifications-list">
+                    <div class="notification-item unread important">
+                        <div class="notification-icon warning">
+                            <i class="material-icons">warning</i>
+                        </div>
+                        <div class="notification-info">
+                            <div class="notification-title">
+                                <span>信用卡还款提醒</span>
+                                <span class="notification-time">10分钟前</span>
+                            </div>
+                            <p class="notification-text">您的招商银行信用卡将在3天后到期还款，金额：¥3,250.00</p>
+                        </div>
+                    </div>
+                    <div class="notification-item unread">
+                        <div class="notification-icon info">
+                            <i class="material-icons">insights</i>
+                        </div>
+                        <div class="notification-info">
+                            <div class="notification-title">
+                                <span>支出分析更新</span>
+                                <span class="notification-time">2小时前</span>
+                            </div>
+                            <p class="notification-text">本月餐饮支出已超出预算15%，点击查看详细分析</p>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon success">
+                            <i class="material-icons">savings</i>
+                        </div>
+                        <div class="notification-info">
+                            <div class="notification-title">
+                                <span>储蓄目标达成</span>
+                                <span class="notification-time">昨天</span>
+                            </div>
+                            <p class="notification-text">恭喜！您的"旅行基金"储蓄目标已完成80%</p>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon primary">
+                            <i class="material-icons">auto_awesome</i>
+                        </div>
+                        <div class="notification-info">
+                            <div class="notification-title">
+                                <span>新的理财建议</span>
+                                <span class="notification-time">2天前</span>
+                            </div>
+                            <p class="notification-text">基于您的风险偏好，我们为您推荐了3个新的投资组合</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化资产趋势图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const balanceCtx = document.getElementById('balanceChart').getContext('2d');
+            new Chart(balanceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '资产趋势',
+                        data: [280000, 285000, 290000, 305000, 315000, 328550],
+                        borderColor: 'rgba(255, 255, 255, 0.8)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'white',
+                        pointRadius: 4,
+                        tension: 0.4,
+                        fill: {
+                            target: 'origin',
+                            above: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: false
+                        },
+                        y: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            // 初始化支出分析图表
+            const spendingCtx = document.getElementById('spendingChart').getContext('2d');
+            new Chart(spendingCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['餐饮', '交通', '购物', '娱乐', '其他'],
+                    datasets: [{
+                        data: [30, 20, 25, 15, 10],
+                        backgroundColor: [
+                            '#4F46E5',
+                            '#10B981',
+                            '#F59E0B',
+                            '#EC4899',
+                            '#6B7280'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
